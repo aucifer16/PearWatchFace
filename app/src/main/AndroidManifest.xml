@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.seapip.thomas.pear">
+    package="com.seapip.thomas.kai" >
+<uses-feature android:name="android.hardware.type.watch" />
+    <!-- Required to act as a custom watch face. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Required for complications to receive complication data and open the provider chooser. -->
+    <uses-permission android:name="com.google.android.wearable.permission.RECEIVE_COMPLICATION_DATA" />
 
     <uses-feature android:name="android.hardware.type.watch" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND" />
-    <uses-permission android:name="com.google.android.wearable.permission.RECEIVE_COMPLICATION_DATA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,12 +18,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault">
-
+        android:theme="@android:style/Theme.DeviceDefault" >
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -29,9 +31,9 @@
             android:required="false" />
 
         <service
-            android:name=".modular.WatchFaceService"
+            android:name="com.seapip.thomas.kai.modular.WatchFaceService"
             android:label="@string/name_modular"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -51,11 +53,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".motion.WatchFaceService"
+            android:name="com.seapip.thomas.kai.motion.WatchFaceService"
             android:label="@string/name_motion"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -75,11 +76,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".color.WatchFaceService"
+            android:name="com.seapip.thomas.kai.color.WatchFaceService"
             android:label="@string/name_color"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -99,11 +99,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".simple.WatchFaceService"
+            android:name="com.seapip.thomas.kai.simple.WatchFaceService"
             android:label="@string/name_simple"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -123,11 +122,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".utility.WatchFaceService"
+            android:name="com.seapip.thomas.kai.utility.WatchFaceService"
             android:label="@string/name_utility"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -147,11 +145,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".chronograph.WatchFaceService"
+            android:name="com.seapip.thomas.kai.chronograph.WatchFaceService"
             android:label="@string/name_chronograph"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -171,11 +168,10 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".sport_digital.WatchFaceService"
+            android:name="com.seapip.thomas.kai.sport_digital.WatchFaceService"
             android:label="Pear Sport+ Digital"
-            android:permission="android.permission.BIND_WALLPAPER">
+            android:permission="android.permission.BIND_WALLPAPER" >
             <meta-data
                 android:name="android.service.wallpaper"
                 android:resource="@xml/watch_face" />
@@ -195,12 +191,11 @@
                 <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
             </intent-filter>
         </service>
-
         <service
-            android:name=".provider.DateProviderService"
+            android:name="com.seapip.thomas.kai.provider.DateProviderService"
             android:icon="@drawable/ic_date_week"
             android:label="Date of week"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
@@ -212,12 +207,11 @@
                 android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
                 android:value="600" />
         </service>
-
         <service
-            android:name=".provider.SimpleDateProviderService"
+            android:name="com.seapip.thomas.kai.provider.SimpleDateProviderService"
             android:icon="@drawable/ic_date"
             android:label="Date"
-            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER" >
             <intent-filter>
                 <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
             </intent-filter>
@@ -231,9 +225,9 @@
         </service>
 
         <activity
-            android:name=".modular.SettingsActivity"
+            android:name="com.seapip.thomas.kai.modular.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.modular.CONFIG" />
 
@@ -241,11 +235,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".motion.SettingsActivity"
+            android:name="com.seapip.thomas.kai.motion.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.motion.CONFIG" />
 
@@ -253,11 +246,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".color.SettingsActivity"
+            android:name="com.seapip.thomas.kai.color.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.color.CONFIG" />
 
@@ -265,11 +257,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".simple.SettingsActivity"
+            android:name="com.seapip.thomas.kai.simple.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.simple.CONFIG" />
 
@@ -277,11 +268,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".utility.SettingsActivity"
+            android:name="com.seapip.thomas.kai.utility.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.utility.CONFIG" />
 
@@ -289,11 +279,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".chronograph.SettingsActivity"
+            android:name="com.seapip.thomas.kai.chronograph.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.chronograph.CONFIG" />
 
@@ -301,11 +290,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".sport_digital.SettingsActivity"
+            android:name="com.seapip.thomas.kai.sport_digital.SettingsActivity"
             android:label="Settings"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/Theme.Transparent" >
             <intent-filter>
                 <action android:name="com.seapip.thomas.pear_watchface.sport_digital.CONFIG" />
 
@@ -313,9 +301,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ColorActivity" />
-
+        <activity android:name="com.seapip.thomas.kai.ColorActivity" />
         <activity android:name="android.support.wearable.complications.ComplicationHelperActivity" />
     </application>
 

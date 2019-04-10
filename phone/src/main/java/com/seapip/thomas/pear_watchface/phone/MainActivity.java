@@ -27,10 +27,10 @@ public class MainActivity extends AppIntro2 {
                 "Check Android Wear version on the watch.",
                 R.drawable.version, Color.parseColor("#00BCD4"));
         addSlide(mVersionFragment);
-        addSlide(AppIntroFragment.newInstance("Play Store", "Open the Play Store on the watch.",
-                R.drawable.playstore, Color.parseColor("#12C26D")));
-        addSlide(AppIntroFragment.newInstance("Search", "Search for: \"Pear Watch Face\".",
-                R.drawable.search, Color.parseColor("#12C26D")));
+        //addSlide(AppIntroFragment.newInstance("Play Store", "Open the Play Store on the watch.",
+          //      R.drawable.playstore, Color.parseColor("#12C26D")));
+        //addSlide(AppIntroFragment.newInstance("Search", "Search for: \"Pear Watch Face\".",
+          //      R.drawable.search, Color.parseColor("#12C26D")));
         addSlide(AppIntroFragment.newInstance("Install", "Install the watch face.",
                 R.drawable.install, Color.parseColor("#12C26D")));
 
@@ -38,30 +38,30 @@ public class MainActivity extends AppIntro2 {
         setProgressButtonEnabled(true);
         showDoneButton(false);
 
-        final AlertDialog.Builder oldVersionDialog = new AlertDialog.Builder(this)
-                .setTitle("Android Wear 1.5")
-                .setMessage("This version is only Android Wear 2.0 compatible.")
-                .setPositiveButton("Show older version", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        try {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.seapip.thomas.pear")));
-                            finish();
-                        } catch (android.content.ActivityNotFoundException e) {
-                        }
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        finish();
-                    }
-                });
+//        final AlertDialog.Builder oldVersionDialog = new AlertDialog.Builder(this)
+//                .setTitle("Android Wear 1.5")
+//                .setMessage("This version is only Android Wear 2.0 compatible.")
+//                .setPositiveButton("Show older version", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        try {
+//                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.seapip.thomas.pear")));
+//                            finish();
+//                        } catch (android.content.ActivityNotFoundException e) {
+//                        }
+//                    }
+//                })
+//                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        finish();
+//                    }
+//                });
         mVersionDialog = new AlertDialog.Builder(this)
                 .setTitle("Version")
                 .setMessage("Android wear version on the watch?")
                 .setPositiveButton("Android Wear 2.0", null)
                 .setNegativeButton("Android Wear 1.5", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        oldVersionDialog.show();
+                       // oldVersionDialog.show();
                     }
                 })
                 .setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {

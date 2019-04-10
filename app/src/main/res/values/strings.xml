@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Pear Watch Face</string>
+    <string name="app_name">Pear Watch Face New</string>
     <string name="name_modular">Pear Modular</string>
-    <string name="name_motion">Pear Motion</string>
+    <string name="name_motion">Pear Motion New</string>
     <string name="name_color">Pear Color</string>
     <string name="name_simple">Pear Simple</string>
     <string name="name_utility">Pear Utility</string>
